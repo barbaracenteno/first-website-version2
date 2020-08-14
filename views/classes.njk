@@ -1,0 +1,43 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+
+<title>Viagens - Bárbara Centeno</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="wrapper">
+        <h1>Viagens</h1>
+    </div>
+
+    <section class="cards">
+
+        {% for item in items %}
+        <div class="card" id="{{item.id}}">
+            <div class="card__image-container {{'featured-wrapper' if item.featured}}">
+                <img src="{{item.image}}" alt="{{item.info}}">
+                {% if item.featured %}
+                    <div class="featured">Featured</div>
+                {% endif %}
+            </div>
+            <div class="card__local">
+                <p>{{item.info}}</p>
+            </div>
+            <div class="card__info">
+                <p>{{item.duration}}</p>
+            </div>
+        </div>
+        {% endfor %}
+   
+    </section>
+
+    <script src="/scripts.js"></script>
+
+    {% endblock %}
+
+  
